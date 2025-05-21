@@ -202,16 +202,6 @@ if train_file and test_file:
     fig.colorbar(p)
     st.pyplot(fig)
 
-    # Confusion matrix and purity
-    st.subheader("Cluster vs. Label Analysis")
-    n_clusters = 10
-    kmeans_pca = KMeans(n_clusters=n_clusters, random_state=42)
-    labels_kmeans = kmeans_pca.fit_predict(X_pca2)
-    cm = confusion_matrix(y_train, labels_kmeans)
-    st.write("Confusion Matrix:")
-    fig, ax = plt.subplots(figsize=(10,8))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
-    st.pyplot(fig)
 
     purity_table = []
     for i in range(n_clusters):
